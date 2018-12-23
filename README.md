@@ -8,16 +8,31 @@ Now, there are four *.py files under tesing, which are:
 4. complex_cnn.py, use a comple model to train CIFAR-10, but got stuck, and the loss didn't drop.
 
 
+
+the simple models only get 60%, and the VGG11 only get 89%.
+
+
+
+- [ ] try to get 95%+ accuracy in CIFAR-10 dataset
+- [ ] try to train in MNIST dataset
+- [ ] Re-arrange the codes
+
+
+
+
 ## File structure
 By default, each task hold one single folder:
 > TASK_NAME ______ TaskName_Detail.py
->            |____ ./data   :load the datasets here.
->            |____ ./fig    :save the figs for visulization.
->            |____ ./model  :save the *.pth file, and save the information of the model, such as EPOCH, BATCH, correct rate, and optimizer, etc.
->            |____ other files, README.md, and useful *.py files.
+> ​           |____ ./data   :load the datasets here.
+> ​           |____ ./fig    :save the figs for visulization.
+> ​           |____ ./model  :save the *.pth file, and save the information of the model, such as EPOCH, BATCH, correct rate, and optimizer, etc.
+> ​           |____ other files, README.md, and useful *.py files.
 
 Moreover, the *.py files can be seperated by its function, such as load model, save model, save statistics, draw fig, define CNN model ...
 
-All the files should be update by Git, so I can use the files both the Server and the Mac. Use Github is better in the beginning.
+All the files should be update by Git, so I can use the files both the Server and the Mac. Use Github is better in the beginning. And test the .gitignore file to filter the useless folders.
 
+## Attention
+
+DO NOT use Chinese characters in this repo.
 
