@@ -159,11 +159,11 @@ import matplotlib.pyplot as plt
 
 torch.save(net.state_dict(), "./models/cifar10_"+str(BATCH_SIZE)+"_"+str(EPOCH)+".pth")
 
-file = open("./cifar10"+str(BATCH_SIZE)+"_"+str(EPOCH)+".txt","w")
+file = open("./cifar10_"+str(BATCH_SIZE)+"_"+str(EPOCH)+".txt","w")
 file.write(str(val_correct_rate))
 file.close()
 
 
 plt.plot(val_correct_rate)
-plt.savefig("./fig/cifar10"+str(BATCH_SIZE)+"_"+str(EPOCH)+".png")
+plt.savefig("./fig/cifar10_"+str(BATCH_SIZE)+"_"+str(EPOCH)+".png")
 plt.show()

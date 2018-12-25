@@ -20,7 +20,7 @@ device = torch.device("cuda:10" if torch.cuda.is_available() else "cpu")
 device_ids = [10, 11]
 total_epoch = 0
 batch = 256
-WORKERS = 8
+WORKERS = 4
 epoch_times = 200
 
 def test(testloader, batch, net):
@@ -134,7 +134,7 @@ transform = transforms.Compose(
      transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])                 
 
 net = Net()
-nn.DataParallel(net, device_ids = device_ids)
+#net = nn.DataParallel(net, device_ids = device_ids)
 net = net.to(device)
 
 
@@ -162,7 +162,7 @@ for j in range(epoch_times):
     elif j < 100:
         optimizer = optim.SGD(net.parameters(), lr=0.005, momentum=0.9)
     else :
-        optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.999)
+        optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.99)
     net, total_epoch = epoch_train(1, trainloader, net, total_epoch)
     
     correct_rate[j] = test(testloader, batch, net)
@@ -170,7 +170,7 @@ for j in range(epoch_times):
 print('finish training!')
 
 
-torch.save(net.state_dict(), "./models/SimpleModel_"+str(BATCH_SIZE)+"_"+str(EPOCH)+".pth")
+torch.save(net.state_dict(), "./models/SimpleModel_"+str(batch)+"_"+str(epoch_times)+".pth")
 #net.load_state_dict(torch.load('model1.pth')) 
 
 
